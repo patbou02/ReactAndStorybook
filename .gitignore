@@ -1,0 +1,7 @@
+// Webstorm files
+.idea
+
+hello-react-webpack/node_modules/*
+hello-react-webpack/dist/*
+
+*-lock.json

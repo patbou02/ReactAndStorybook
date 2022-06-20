@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hello React</title>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    class MyHeading extends React.Component {
+      render() {
+        return(
+          <header>
+            <h1>Hello {this.props.name === 'React' ? <i>{this.props.name}</i> : this.props.name}</h1>
+          </header>
+        )
+      };
+    }
+    class CounterButton extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          count: 0
+        }
+      }
+      incrementCount = () => {
+        this.setState({ count: this.state.count + 1});
+      }
+      render() {
+        return <button onClick={this.incrementCount}>Clicked: {this.state.count}</button>
+      }
+    }
+    function MyButton(props) {
+      const customStyle = {
+        backgroundColor: props.bg ? props.bg :'green',
+        border: 'none',
+        padding: '15px 25px',
+        color: '#FFFFFF',
+        cursor: 'pointer'
+      };
+      const handleClick = (e) => {
+        console.log('button clicked', e);
+        console.log(e.target);
+        e.stopPropagation();
+      };
+      return(
+        <button style={customStyle} onClick={handleClick}>Click me</button>
+      )
+    }
+    function App() {
+      return(
+        <div onClick={(e) => console.log('App click')}>
+          <MyHeading name="World" />
+          <MyButton />
+          <MyButton bg="red" />
+          <CounterButton />
+        </div>
+      )
+    }
+    ReactDOM.render(<App />, document.querySelector('#app'));
+  </script>
+</body>
+</html>
