@@ -14,7 +14,20 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const elem = <h1>Hello React with JSX</h1>;
+    const styleValue = {
+      color: 'orange',
+      fontSize: '55px'
+    };
+    const elem = (
+      <>
+        <h1
+          id="heading"
+          className="heading-green"
+          style={styleValue}
+        >Hello React with JSX {console.log(1 + 1)}</h1>
+        <button>click me</button>
+      </>
+    );
     ReactDOM.render(elem, document.querySelector('#app'));
   </script>
 </body>
