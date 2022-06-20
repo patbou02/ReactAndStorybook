@@ -18,21 +18,29 @@
       render() {
         return(
           <header>
-            <h1>Hello React</h1>
+            <h1>Hello {this.props.name === 'React' ? <i>{this.props.name}</i> : this.props.name}</h1>
           </header>
         )
       };
     }
-    function MyButton() {
+    function MyButton(props) {
+      const customStyle = {
+        backgroundColor: props.bg ? props.bg :'green',
+        border: 'none',
+        padding: '15px 25px',
+        color: '#FFFFFF',
+        cursor: 'pointer'
+      };
       return(
-        <button>Click me</button>
+        <button style={customStyle}>Click me</button>
       )
     }
     function App() {
       return(
         <>
-          <MyHeading />
+          <MyHeading name="World" />
           <MyButton />
+          <MyButton bg="red" />
         </>
       )
     }
