@@ -12,9 +12,9 @@
   <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script>
-    const italElem = React.createElement('i', {id: 'italic'}, 'React!!!');
-    const elem = React.createElement('h1', {id: 'heading'}, 'Hello ', italElem);
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const elem = <h1>Hello React with JSX</h1>;
     ReactDOM.render(elem, document.querySelector('#app'));
   </script>
 </body>
