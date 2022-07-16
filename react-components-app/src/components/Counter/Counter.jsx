@@ -1,19 +1,19 @@
+import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { Button } from '../Button/Button';
 
 export default function Counter({ color }) {
 
-  let count = 0;
-  const setCount = (val) => (count = val);
+  const [count, setCount] = useState(0);
 
   const handleClick = (e) => {
     if (e === 'ADD') {
       console.log('add button click');
-      setCount(count++);
+      setCount(count+1);
       return;
     }
     console.log('subtract button click');
-    setCount(count--);
+    if (count >= 1) setCount(count-1);
   };
 
   return (
