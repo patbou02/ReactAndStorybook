@@ -11,6 +11,7 @@ export default function Accordion({ data }) {
         data.map((d) => <AccordionItem
           title={d.title}
           content={d.content}
+          key={d.toString()}
         />)
       }
     </div>
@@ -31,11 +32,16 @@ const AccordionItem = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false);
   const contentElem = useRef(null );
 
+  const handleClick = () => {
+    console.log('accordion item clicked');
+    setIsActive(!isActive);
+  }
+
   return (
     <div className="accordion-item">
       <div
         className={classNames("accordion-title", { active: isActive })}
-        onClick={(e) => setIsActive(!isActive)}
+        onClick={(e) => handleClick()}
         role="button"
       >
         <div className="title">{title}</div>
@@ -44,9 +50,7 @@ const AccordionItem = ({ title, content }) => {
       <div
         className={classNames("accordion-content", { active: isActive })}
         ref={contentElem}
-        style={{
-          height: isActive ? contentElem.current.scrollheight : '0px'
-        }}
+        style={{ height: isActive ? contentElem.current.scrollheight : '0px' }}
       >{content}</div>
     </div>
   );
