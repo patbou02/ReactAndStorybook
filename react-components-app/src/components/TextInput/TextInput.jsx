@@ -6,14 +6,15 @@ const TextInput = ({name, type, label, placeholder}) => {
   const handleChange = (e) => setValue(e.target.value);
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className='mb-4'>
+      <label htmlFor={name} className='block text-gray-700 text-sm font-bold mb-2'>{label}</label>
       <input
         type={type}
         name={name}
         value={value}
         placeholder={placeholder}
         onChange={handleChange}
+        className='shadow appearance-none rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
       />
     </div>
   );
