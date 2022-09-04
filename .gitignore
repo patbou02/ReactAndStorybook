@@ -5,3 +5,7 @@ hello-react-webpack/node_modules/*
 hello-react-webpack/dist/*
 
 *-lock.json
+
+react-components-app/build/*
+
+**/node_modules/*
